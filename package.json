@@ -1,0 +1,44 @@
+{
+  "name": "generic-html-card",
+  "version": "1.3.2",
+  "description": "Lovelace generic html card",
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "hass",
+    "automation",
+    "lovelace",
+    "custom-cards"
+  ],
+  "module": "generic-html-card.js",
+  "repository": "git@github.com:avalenti89/lovelace-generic-html-card.git",
+  "author": "Antonio Valenti <valentiantonio89@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "custom-card-helpers": "^1.6.6",
+    "home-assistant-js-websocket": "^5.7.0",
+    "lit-element": "^2.4.0",
+    "lit-html": "^1.3.0",
+    "card-tools": "github:thomasloven/lovelace-card-tools"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@rollup/plugin-json": "^4.1.0",
+    "rollup": "^2.35.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.27.3",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^3.4.3"
+  },
+  "scripts": {
+    "start": "rollup -c rollup.config.dev.js --watch",
+    "build": "tsc && npm run rollup",
+    "rollup": "rollup -c"
+  }
+}
