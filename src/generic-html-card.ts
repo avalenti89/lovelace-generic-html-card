@@ -11,8 +11,8 @@ import {
   HomeAssistant,
   LovelaceCardConfig,
   LovelaceCard,
-  hasConfigOrEntityChanged,
-} from "custom-card-helpers"; // This is a community maintained npm module with common helper functions/types
+  // hasConfigOrEntityChanged,
+} from "custom-card-helpers";
 import { createCard } from "card-tools/src/lovelace-element";
 
 export interface GenericHtmlCardConfig extends LovelaceCardConfig {
@@ -82,19 +82,23 @@ export class GenericHtmlCard extends LitElement {
   }
 
   protected shouldUpdate(changedProps: PropertyValues): boolean {
-    console.log("shouldUpdate", this.config);
+    // console.log("shouldUpdate", this.config, changedProps);
     if (!this.config) {
       return false;
     }
+    return this.hass !== changedProps.get("hass");
 
-    const hasToChange = hasConfigOrEntityChanged(this, changedProps, false);
-    console.log("shoudlUpdate", hasToChange);
-    return hasToChange;
+    // TODO it should update when one of the cards updates
+    // const hasToChange = hasConfigOrEntityChanged(this, changedProps, false);
+    // console.log("shoudlUpdate", hasToChange);
+    // return hasToChange;
   }
 
   private _createCardElement(cardConfig: LovelaceCardConfig) {
     // console.log("_createCardElement", this.config, cardConfig);
+    // const element = createCardElement(cardConfig) as LovelaceCard;
     const element = createCard(cardConfig) as LovelaceCard;
+
     // console.log(this.config?.id, this.config, cardConfig);
     if (this.hass) {
       element.hass = this.hass;
